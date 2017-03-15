@@ -18,9 +18,12 @@ public class Solution {
         fast=fast.next;
         for(int j=i-k%i;j>0;j--)
         slow=slow.next;
-        fast.next=dummy.next;
+        fast.next=dummy.next;//形成环
         dummy.next=slow.next;
         slow.next=null;
         return dummy.next;
     }
 }
+
+
+
