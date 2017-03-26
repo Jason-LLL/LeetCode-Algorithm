@@ -20,6 +20,8 @@ public class Solution {
     }
 }
 //在原有的字符串基础上做替换,Stringbuilder的setCharAt(int index,char a)替换字符;setLength()为重新设置字符串长度
+// 从前往后替换，后面的字符要不断往后移动，要多次移动，所以效率低下
+     // 从后往前，先计算需要多少空间，然后从后往前移动，则每个字符只为移动一次，这样效率更高一点。
 public class Solution {
     public String replaceSpace(StringBuffer str) {
         int spacenum = 0;//记录空格的数量
