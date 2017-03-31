@@ -30,7 +30,11 @@ public class Solution {
         return head;
     }
 }
-/*c++做法 ，也是利用迭代
+
+
+/* 先序遍历第一个位置肯定是根节点node，   
+中序遍历的根节点位置在中间p，在p左边的肯定是node的左子树的中序数组，p右边的肯定是node的右子树的中序数组   
+另一方面，先序遍历的第二个位置到p，也是node左子树的先序子数组，剩下p右边的就是node的右子树的先序子数组   把四个数组找出来，分左右递归调用即可 */
 class Solution {
  
     public:
