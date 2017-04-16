@@ -1,44 +1,32 @@
-/**
- * Definition for singly-linked list.
- * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode(int x) { val = x; }
- * }
- */
-
-//1.recursion   
-public class Solution {
-    public ListNode reverseList(ListNode head) {
-        if(head==null) return null;
-        if(head.next==null) return head;
-        
-        
-        ListNode p= head.next;
-        ListNode n= reverseList(p);
-        
-        head.next=null;
-        p.next=head;
-        return n;
-    }
-}
-//2.Iteration   
+//Iterstion法
 public class Solution{
-	public ListNode reverseList(ListNode head)
+	public ListNiode reverseList( ListNiode head)
 	{
-		if(head==null) return null;
-		if(head.next==null) return head;
-        ListNode pre = head;
-		ListNode p=head.next;
-		pre.next=null;
-		ListNode nt;
-		while(p!=null)
+		ListNiode pre = head;
+		ListNiode p=head.next;
+		head.next=null;
+		while(p！=null)
 		{
-               nt= p.next;
-               p.next=pre;
-               pre=p;
-               p=nt;
+			ListNode temp=p.next;
+			p.next=pre;
+			pre=p;
+			p=temp;
+          
 		}
 		return pre;
 	}
 }
+//recursion
+public class Solution
+{
+	public ListNiode reverseList(ListNiode head)
+	{
+		if(head==null) return null;
+		if(head.next=null) return head;
+		ListNode p = head.next;
+		ListNode n=reverseList(p)
+		head.next=null;
+		p.next=head;
+		return n;
+	}
+}	
