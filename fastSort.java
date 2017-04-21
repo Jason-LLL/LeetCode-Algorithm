@@ -24,8 +24,8 @@ public void sort(int[] a,int low,int high)
      	a[start]=a[end];
         a[end]=temp2;
      }
+ }
      //此时第一次循环比较结束，关键值的位置已经确定了。左边的值都比关键值小，右边的值都比关键值大，但是两边的顺序还有可能是不一样的，进行下面的递归调用
     if(start>low) sort(a,low,start-1);//左边序列。第一个索引位置到关键值索引-1
     if(end<high) sort(a,end+1,high);//右边序列。从关键值索引+1到最后一个
-    }
 }
