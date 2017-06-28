@@ -1,0 +1,61 @@
+import java.util.ArrayList;
+import java.util.*;
+
+/*
+public class TreeNode {
+    int val = 0;
+    TreeNode left = null;
+    TreeNode right = null;
+
+    public TreeNode(int val) {
+        this.val = val;
+
+    }
+
+}
+*/
+public class Solution {
+    public ArrayList<ArrayList<Integer> > Print(TreeNode pRoot) {
+         //需要用两个堆栈来实现
+       ArrayList<ArrayList<Integer>> aList=new ArrayList<ArrayList<Integer>>();
+        if(pRoot==null)
+            return aList;
+        Stack<TreeNode> s1 = new Stack<TreeNode>();
+        s1.add(pRoot);
+        Stack<TreeNode> s2 = new Stack<TreeNode>();
+        
+        while(!s1.isEmpty() || !s2.isEmpty())
+            {
+            if(!s1.isEmpty())
+                {
+                ArrayList<Integer> aList2=new ArrayList<Integer>();
+                while(!s1.isEmpty())
+                    {
+                    TreeNode p = s1.pop();
+                    aList2.add(p.val);
+                    if(p.left!=null)
+                        s2.add(p.left);
+                    if(p.right!=null)
+                        s2.add(p.right);
+               }
+                aList.add(aList2);
+            }
+            else
+                {
+                ArrayList<Integer> aList2=new ArrayList<Integer>();
+                while(!s2.isEmpty())
+                    {
+                    TreeNode p = s2.pop();
+                    aList2.add(p.val);
+                    if(p.right!=null)
+                        s1.add(p.right);
+                    if(p.left!=null)
+                        s1.add(p.left);
+                }
+                aList.add(aList2);
+            }
+        }
+        return aList;
+    }
+
+}
