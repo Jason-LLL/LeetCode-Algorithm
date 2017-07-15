@@ -8,6 +8,7 @@ public class Solution {
         ListNode fast = new ListNode(0);
         ListNode slow = new ListNode(0);
         
+        //
         slow=pHead.next;
         fast=pHead.next.next;
         while(fast!=slow)
@@ -29,7 +30,7 @@ public class Solution {
 
 /*
    c++实现
-   
+
    class Solution {
 public:
     ListNode* EntryNodeOfLoop(ListNode* pHead)
